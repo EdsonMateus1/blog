@@ -1,0 +1,17 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <form action="/admin/categories/save" method="POST" class="categoriesform ">
+                <label for="inputNewCat">
+                    <h2>New category</h2>
+                </label>
+                <input autofocus required id="inputNewCat" class="form-control" type="text" name="title" placeholder="Set category title">
+                <button id="categoriesbutton" class="btn btn-primary">Rigister</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%-include('../../partials/footer.ejs') %>

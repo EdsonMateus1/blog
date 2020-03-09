@@ -1,0 +1,33 @@
+<%- include('../../partials/header.ejs') %>
+<%- include('../../partials/navbar.ejs') %>
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <form action="/admin/articles/save" method="POST" class="categoriesform ">
+                <label for="inputNewCat">
+                    <h2>New article</h2>
+                </label>
+                <input autofocus required id="inputNewCat" class="form-control" type="text" name="title"
+                    placeholder="Set article title">
+                <textarea class="form-control" name="body" cols="30" rows="10" id="texArticle"></textarea>
+                <label for="selectCategory">Category</label>
+                <select name="category" id="selectCategory" class="form-control">
+                    <%category.forEach(category => { %>
+                    <option value="<%= category.id %>"><%= category.title %></option>
+                    <%});%>
+                </select>
+                <button id="categoriesbutton" class="btn btn-primary">Rigister</button>
+            </form>
+        </div>
+    </div>
+</div>
+<%-include('../../partials/footer.ejs') %>
+
+<script>
+    tinymce.init({
+        selector: '#texArticle',
+        plugins: 'table advlist autolink link image lists print preview hr wordcount fullscreen insertdatetime media save emoticons paste ',
+        
+    });
+</script>
